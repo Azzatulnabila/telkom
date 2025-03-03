@@ -119,13 +119,16 @@ const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <div ref={sidebarRef} className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-transform z-40 ${menuOpen ? "translate-x-0" : "-translate-x-full"} w-64`}>
+      <div
+        ref={sidebarRef}
+        className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-transform z-40 ${menuOpen ? "translate-x-0" : "-translate-x-full"} w-64`}
+        
+      >
         <Sidebar menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} />
       </div>
 
-      {/* Main Content */}
-      <div className={`transition-all duration-300 ${menuOpen ? "ml-80 w-[calc(100%-320px)]" : "ml-0 w-full"} flex-1 flex flex-col min-h-screen`}>
-        <Navbar toggleMenu={() => setMenuOpen(!menuOpen)} />
+      <div className={`transition-all duration-300 ${menuOpen ? "ml-0" : "ml-0"} flex-1 flex flex-col ${menuOpen ? "sm:ml-0 md:ml-64" : ""}`}>
+      <Navbar toggleMenu={() => setMenuOpen(!menuOpen)} />
 
         <div className="p-10 mt-20 bg-slate-50 shadow-lg rounded-lg relative w-[95%] mx-auto min-h-[calc(100vh+300px)] ">
           <h1 className="text-2xl font-bold text-center mb-2">Trends Revenue Performance RLEGS - Per Segment</h1>

@@ -19,13 +19,12 @@ const Sidebar = ({ menuOpen, toggleMenu }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-transform ${
-        menuOpen ? "translate-x-0" : "-translate-x-full"
-      } w-80 z-50`}
+    className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-transform z-40 ${menuOpen ? "translate-x-0" : "-translate-x-full"} w-64`}
+        
     >
       {/* Button close (X) */}
       <button
-        className="absolute top-4 right-4 text-xl"
+        className="absolute top-4 right-4 text-xl sm:hidden"
         onClick={toggleMenu}
         aria-label="Close Menu"
       >

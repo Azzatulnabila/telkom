@@ -86,4 +86,34 @@
     @apply bg-background text-foreground;
     }
 }
-  
+
+
+@media (max-width: 768px) {
+  /* Untuk header, sesuaikan ukuran font agar pas di tampilan mobile */
+  .top-header {
+    font-size: 18px;
+    padding: 8px; /* Mengurangi padding agar sesuai dengan layar kecil */
+  }
+
+  /* Garis horizontal transparan agar ukurannya pas */
+  .transparent-line {
+    width: 100%; /* Agar garis memanjang ke kanan pada layar mobile */
+  }
+
+  /* Tabel yang responsif, memastikan lebar tabel tetap sesuai */
+  .overflow-x-auto {
+    overflow-x: auto; /* Agar tabel bisa digulir secara horizontal jika perlu */
+    width: 100%; /* Memastikan tabel memanfaatkan lebar penuh layar */
+  }
+
+  table {
+    width: 100%; /* Membuat tabel menyesuaikan lebar layar */
+    table-layout: auto; /* Agar kolom bisa menyesuaikan konten */
+  }
+
+  /* Ukuran font dan padding untuk elemen dalam tabel */
+  .table th, .table td {
+    font-size: 14px; /* Mengurangi ukuran font agar tidak terlalu besar */
+    padding: 6px 10px; /* Padding lebih kecil agar pas di layar kecil */
+  }
+}

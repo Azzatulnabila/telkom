@@ -99,7 +99,7 @@ const Sales = () => {
         ref={sidebarRef}
         className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-transform ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
-        } w-64`}
+        } w-64 z-40`}
       >
         <Sidebar
           activeTab={activeTab}
@@ -109,7 +109,9 @@ const Sales = () => {
         />
       </div>
 
-      <div className={`transition-all duration-300 ${menuOpen ? "ml-80 w-[calc(100%-320px)]" : "ml-0 w-full" } flex-1 flex flex-col`}
+      {/* Main Content */}
+      <div
+        className={`transition-all duration-300 ${menuOpen ? "ml-64" : "ml-0"} flex-1 flex flex-col`}
       >
         {/* Navbar */}
         <Navbar toggleMenu={() => setMenuOpen(!menuOpen)} />

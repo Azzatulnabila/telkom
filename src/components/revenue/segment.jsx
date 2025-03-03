@@ -103,7 +103,7 @@ useEffect(() => {
       </div>
 
       {/* Main Content */}
-      <div className={`transition-all duration-300 ${menuOpen ? "ml-80 w-[calc(100%-320px)]" : "ml-0 w-full"} flex-1 flex flex-col min-h-screen`}>
+      <div className={`transition-all duration-300 ${menuOpen ? "ml-0" : "ml-0"} flex-1 flex flex-col ${menuOpen ? "sm:ml-0 md:ml-64" : ""}`}>
         <Navbar toggleMenu={() => setMenuOpen(!menuOpen)} />
 
         <div className="p-10 mt-20 bg-slate-50 shadow-lg rounded-lg relative w-[95%] mx-auto min-h-[calc(100vh+300px)] ">

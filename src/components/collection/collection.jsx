@@ -90,7 +90,7 @@ const Collection = () => {
         menuOpen={menuOpen}
       />
       </div>
-      <div className={`transition-all duration-300 ${menuOpen ? "ml-80 w-[calc(100%-320px)]" : "ml-0 w-full"} flex-1 flex flex-col`}
+      <div className={`transition-all duration-300 ${menuOpen ?"ml-64" : "ml-0"} flex-1 flex flex-col`}
       style={{ transition: "margin 0.3s ease-out, width 0.3s ease-out" }}
       >
 

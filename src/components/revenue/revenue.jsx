@@ -261,9 +261,8 @@ const RevenueDashboard = () => {
       {/* Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-transform z-40 ${
-          menuOpen ? "translate-x-0" : "-translate-x-full"
-        } w-64`}
+        className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-transform z-40 ${menuOpen ? "translate-x-0" : "-translate-x-full"} w-64 sm:w-30`}
+        style={{ position: "fixed", zIndex: 40 }}
       >
         <Sidebar
           activeTab={activeTab}
@@ -273,15 +272,16 @@ const RevenueDashboard = () => {
         />
       </div>
 
-      <div
-        className={`transition-all duration-300 ${menuOpen ? "ml-80 w-[calc(100%-320px)]" : "ml-0 w-full"} flex-1 flex flex-col`}
-      >
+      <div className={`transition-all duration-300 ${menuOpen ? "ml-0" : "ml-0"} flex-1 flex flex-col ${menuOpen ? "sm:ml-0 md:ml-64" : ""}`}>
+
         {/* Navbar */}
         <Navbar toggleMenu={() => setMenuOpen(!menuOpen)} />
         <main className="flex-1 p-4 bg-gray-100 pt-28">
           <h2 className="text-2xl font-bold mb-4">Revenue Dashboard</h2>
-          <div className="grid grid-cols-2 gap-8">
-            {[{
+          {/* Grid untuk desktop dan mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {[
+              {
                 title: "Revenue Trend",
                 component: (
                   <Link to="/trend" className="block w-full h-full">
@@ -294,42 +294,41 @@ const RevenueDashboard = () => {
                 ),
               },
               {
-                title: "Revenue Segment", 
+                title: "Revenue Segment",
                 component: (
                   <Link to="/segment" className="block w-full h-full">
                     {segmentData && segmentData.labels && segmentData.labels.length > 0 ? (
-                    <Bar data={segmentData} options={chartOptions} />
+                      <Bar data={segmentData} options={chartOptions} />
                     ) : (
                       <p className="text-center">Loading...</p>
                     )}
                   </Link>
-                ) 
+                ),
               },
               {
                 title: "Prognosa",
                 component: (
                   <Link to="/prognosa" className="block w-full h-full">
                     {prognosaData && prognosaData.datasets?.length > 0 ? (
-                    <Pie data={prognosaData} options={chartOptions} />
+                      <Pie data={prognosaData} options={chartOptions} />
                     ) : (
                       <p className="text-center">Loading data...</p>
                     )}
                   </Link>
                 ),
-              },                      
+              },
               {
                 title: "Ngtma",
                 component: (
                   <Link to="/ngtma" className="block w-full h-full">
                     {ngtmaData && ngtmaData.datasets?.length > 0 ? (
-                    <Pie data={ngtmaData} options={chartOptions} />
+                      <Pie data={ngtmaData} options={chartOptions} />
                     ) : (
                       <p className="text-center">Loading data...</p>
                     )}
                   </Link>
                 ),
-              },                      
-          
+              },
             ].map((chart, index) => (
               <div
                 key={index}
