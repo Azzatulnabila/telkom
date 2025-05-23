@@ -92,28 +92,101 @@
   /* Untuk header, sesuaikan ukuran font agar pas di tampilan mobile */
   .top-header {
     font-size: 18px;
-    padding: 8px; /* Mengurangi padding agar sesuai dengan layar kecil */
+    padding: 8px; 
   }
 
   /* Garis horizontal transparan agar ukurannya pas */
   .transparent-line {
-    width: 100%; /* Agar garis memanjang ke kanan pada layar mobile */
+    width: 100%; 
   }
 
   /* Tabel yang responsif, memastikan lebar tabel tetap sesuai */
   .overflow-x-auto {
-    overflow-x: auto; /* Agar tabel bisa digulir secara horizontal jika perlu */
-    width: 100%; /* Memastikan tabel memanfaatkan lebar penuh layar */
+    overflow-x: auto; 
+    width: 100%; 
   }
 
   table {
-    width: 100%; /* Membuat tabel menyesuaikan lebar layar */
-    table-layout: auto; /* Agar kolom bisa menyesuaikan konten */
+    width: 100%; 
+    table-layout: auto; 
   }
 
   /* Ukuran font dan padding untuk elemen dalam tabel */
   .table th, .table td {
-    font-size: 14px; /* Mengurangi ukuran font agar tidak terlalu besar */
-    padding: 6px 10px; /* Padding lebih kecil agar pas di layar kecil */
+    font-size: 14px; 
+    padding: 6px 10px; 
   }
+}
+
+/* sembunyikan scrollbar di semua browser */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
+
+
+/* Animasi muncul dari dalam */
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animasi untuk stroke centang */
+@keyframes checkmarkDraw {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+  100% {
+    stroke-dasharray: 100, 0;
+  }
+}
+
+/* Animasi untuk teks muncul dengan fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply animations */
+.animate-popIn {
+  animation: popIn 0.5s ease-out forwards;
+}
+
+.animate-checkmark path {
+  animation: checkmarkDraw 1s ease forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out 1s; /* Delay 1s to wait for checkmark animation */
+}
+
+/* Gaya font tebal untuk teks */
+.font-extrabold {
+  font-weight: 800;
+}
+
+/* Menyesuaikan posisi pesan saat sidebar dibuka/tutup */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.ml-64 {
+  margin-left: 16rem; /* Menyesuaikan dengan lebar sidebar */
+}
+
+.ml-0 {
+  margin-left: 0;
 }

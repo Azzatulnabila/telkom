@@ -21,7 +21,8 @@ const App = () => {
     <Router>
       <div className="bg-[#EEEEEE] dark:bg-gray-900 dark:text-white duration-200 overflow-x-hidden">
         <Routes>
-        <Route path="/" element={<Dashboard />} />
+        
+          <Route path="/" element={<RevenueDashboard />} />
           <Route path="/revenue" element={<RevenueDashboard />} />
           <Route path="/ngtma" element={<NGTMAReport />} />
           <Route path="/trend" element={<TREND />} />

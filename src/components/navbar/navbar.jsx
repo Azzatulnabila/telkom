@@ -2,7 +2,7 @@ const Navbar = ({ toggleMenu, menuOpen }) => {
   return (
     <header
       className={`fixed top-0 bg-gray-900 text-white p-4 flex justify-between items-center shadow z-50 transition-all duration-300 ${
-        menuOpen ? "left-80 w-[calc(100%-320px)]" : "ml-0 w-full"
+        menuOpen ? 'w-[calc(100%-16rem)] left-64' : 'w-full left-0'
       }`}
     >
       <button onClick={toggleMenu} className="text-2xl focus:outline-none">
